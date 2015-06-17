@@ -1,0 +1,77 @@
+﻿@using Portal.Resources
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ResShared.TITLE_APP_NAME</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/portal/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
+    <link href="~/Content/portal/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/portal/whirl/dist/whirl.css" rel="stylesheet" />
+    <link href="~/Content/portal/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/portal/css/app.css" rel="stylesheet" />
+</head>
+<body ng-app="portal" ng-cloak ng-controller="loginController as vm">
+    <div class="blocker" ng-show="vm.svc.working">
+        <div>
+            Procesando...<img src="~/Content/img/ajax_loader.gif" />
+        </div>
+    </div>
+<div class="wrapper ">
+    <div class="space-30">&nbsp;</div>
+    <div class="space-30">&nbsp;</div>
+    <div class="block-center mt-xl wd-xl">
+        <div class="panel panel-dark panel-flat">
+            <div class="panel-heading text-center">
+                <a href="#">
+                    <img src="~/Content/img/logo.jpg" class="block-center img-rounded" width="290" alt="SAT">
+                </a>
+            </div>
+            <div class="panel-body">
+                <p class="text-center pv">INICIO DE SESIÓN</p>
+                <form id="loginForm" role="form" novalidate="" class="mb-lg">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group has-feedback">
+                        <input id="Email" name="Email" ng-model="vm.m.email" placeholder="Usuario" autocomplete="off" required class="form-control">
+                        <span class="fa fa-user form-control-feedback text-muted"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input id="Password" name="Password" type="password" ng-model="vm.m.password" placeholder="Contraseña" required class="form-control">
+                        <span class="fa fa-lock form-control-feedback text-muted"></span>
+                    </div>
+                    <div ng-show="vm.m.email && vm.m.password">
+                        <button ng-click="vm.login('#loginForm', '@Url.Action("Login", "Account")')" class="btn btn-block btn-primary mt-lg">Ingresar</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="alert alert-danger element-center" ng-show="vm.svc.msgErr">
+                        <small>{{vm.svc.msgErr}}</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="p-lg text-center">
+            <span>&copy;</span>
+            <span>2015</span>
+            <span>-</span>
+            <span>MAC3</span>
+            <br>
+            <span>Multiservicios Adminitrados de Comunicaciones</span>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/modernizr")
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/portal/jQuery-Storage-API/jquery.storageapi.js"></script>
+<script src="~/Scripts/portal/jquery.easing/js/jquery.easing.js"></script>
+<script src="~/Scripts/angular-app/main/main.mod.js"></script>
+<script src="~/scripts/angular-app/svc/conn.svc.js"></script>
+<script src="~/scripts/angular-app/ctrl/login.ctrl.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNet.Identity
+@using Portal.Web.Helpers
+
+@{
+    var userName = User.Identity.GetUserName();
+}
+
+<header class="topnavbar-wrapper">
+    <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+        </div>
+        <div class="nav-wrapper">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                        <em class="fa fa-navicon"></em>
+                    </a>
+                    <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                        <em class="fa fa-navicon"></em>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="visible-lg" data-ng-disabled="disabled">
+                    <a href="#" data-toggle-fullscreen="">
+                        <em class="fa fa-expand"></em>
+                    </a>
+                </li>
+                <li class="dropdown dropdown-list">
+                    <a href="#" data-toggle="dropdown">
+                        <em class="fa fa-cog"></em>
+                    </a>
+                    <ul class="dropdown-menu animated flipInX">
+                        <li>
+                            <div class="list-group">
+                                <a href="@Url.Action("LogOff", "Account", new {area = ""})" class="list-group-item">
+                                    <div class="media-box">
+                                        <div class="pull-left">
+                                            <em class="fa fa-power-off fa-lg text-info"></em>
+                                        </div>
+                                        <div class="media-box-body clearfix">
+                                            <p class="m0">Salir</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+<aside class="aside" data-ng-controller="menuController" data-ng-init='menu = @LinkSiteHelper.LinkSiteByUser(userName)'>
+    <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+            <ul class="nav">
+                <li class="has-user-block">
+                    <div id="user-block">
+                        <div class="item user-block">
+                            <div class="user-block-picture">
+                                <div class="user-block-status">
+                                    <img src="~/Content/img/Logo.png" alt="Usuario" width="60" height="60" class="img-thumbnail img-circle">
+                                    <div class="circle circle-success circle-lg"></div>
+                                </div>
+                            </div>
+                            <div class="user-block-info">
+                                <span class="user-block-name">@User.Identity.Name</span>
+                                <span class="user-block-role">@UserHelper.RoleForUser(userName)</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-heading ">
+                    <span data-localize="sidebar.heading.HEADER">Menú principal</span>
+                </li>
+                <li class=" " data-ng-repeat="p in menu">
+                    <a href="#{{(p.IsLeaf ? p.Url : ('ref' + p.NodeId))}}" title="{{p.NodeName}}" data-toggle="collapse">
+                        <em data-ng-class="'fa ' + p.Icon"></em><span><small>{{p.NodeName}}</small></span>
+                    </a>
+                    <ul id="{{('ref' + p.NodeId)}}" class="nav sidebar-subnav collapse">
+                        <li class="sidebar-subnav-header">{{p.NodeName}}</li>
+                        <li class=" " data-ng-repeat="c in p.Children">
+                            <a href="{{c.Url}}" title="{{c.NodeName}}">
+                                &nbsp;&nbsp;&nbsp;<em data-ng-class="'fa ' + c.Icon"></em><span><small>{{c.NodeName}}</small></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

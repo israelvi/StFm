@@ -1,0 +1,57 @@
+﻿@using Portal.Resources
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ResShared.TITLE_APP_LARGE_NAME</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/portal/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
+    <link href="~/Content/portal/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/portal/whirl/dist/whirl.css" rel="stylesheet" />
+    <link href="~/Content/portal/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/portal/css/app.css" rel="stylesheet" />
+    @RenderSection("css", false)
+</head>
+<body data-ng-app="portal">
+    <div class="wrapper">
+        @Html.Partial("_Menu")
+        <section>
+            @RenderBody()
+            @Html.Partial("_SharedServices")
+            <hr />
+        </section>
+        <div class="footer fixed">
+            <div class="pull-right">
+                <strong>Powered by</strong> IDRA Soft &copy; 2015
+            </div>
+            <div>
+                &copy;@ResShared.TITLE_APP_NAME
+            </div>
+        </div>
+    </div>
+    <div id="dlgUpsert"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/portal/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <script src="~/Scripts/portal/jquery.easing/js/jquery.easing.js"></script>
+    <script src="~/Scripts/portal/animo.js/animo.js"></script>
+    <script src="~/Scripts/portal/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/portal/screenfull/dist/screenfull.js"></script>
+    <script src="~/Scripts/portal/jquery-localize-i18n/dist/jquery.localize.js"></script>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-app/main/main.mod.js"></script>
+    <script src="~/Scripts/angular-app/ctrl/menu.ctrl.js"></script>
+    <script src="~/Scripts/angular-app/svc/conn.svc.js"></script>
+    <script src="~/Scripts/angular-app/shared/focus.fact.js"></script>
+    <script src="~/Scripts/portal/js/app.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

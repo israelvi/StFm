@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66d9a50c23764f62bdd7e548ed1dcce9" Name="Diagram1" >
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetNodeSiteMap" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetPermissionNodePerRole" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="5.5" />
+        <AssociationConnector Association="PortalUnicoModel.FK_AspNetPermissionNodePerRole_AspNetNodeSiteMap" />
+        <AssociationConnector Association="PortalUnicoModel.FK_AspNetPermissionNodePerRole_AspNetRoles" />
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="4.25" />
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="7" />
+        <EntityTypeShape EntityType="PortalUnicoModel.AspNetUsers" Width="1.5" PointX="3" PointY="4.25" />
+        <AssociationConnector Association="PortalUnicoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PortalUnicoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PortalUnicoModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

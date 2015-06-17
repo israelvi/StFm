@@ -1,0 +1,165 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 800px;
+}
+
+div.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    -ms-opacity: .5;
+    opacity: .5;
+    background-color: #000;
+    z-index: 1000;
+    overflow: auto;
+}
+
+    div.blocker div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5em;
+        height: 2em;
+        margin: -1em 0 0 -2.5em;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    div.blocker img {
+        position: relative;
+        top: -55px;
+        left: 15%;
+    }
+
+.fix-control {
+    margin-left: 9px;
+}
+
+.element-center {
+    text-align: center !important;
+}
+
+.element-right {
+    text-align: right !important;
+}
+
+.error {
+    color: red;
+    font-size: 11px;
+}
+
+.icon-grid-st {
+    font-size: 17px;
+}
+
+.darkorchid {
+    color: darkorchid;
+}
+
+.greenyellow {
+    color: greenyellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellowgreen {
+    color: yellowgreen;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
+}
+
+.blue-light {
+    color: #00a7ff;
+}
+
+.black {
+    color: #000;
+}
+
+.white {
+    color: #fff;
+}
+
+.zip-code {
+    -moz-min-width: 170px;
+    -ms-min-width: 170px;
+    -o-min-width: 170px;
+    -webkit-min-width: 170px;
+    min-width: 170px;
+    max-width: 280px;
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+}
+
+    .fileinput-button input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        -ms-opacity: 0;
+        opacity: 0;
+        -ms-filter: 'alpha(opacity=0)';
+        font-size: 200px;
+        direction: ltr;
+        cursor: pointer;
+    }
+
+.loadingPoint {
+    background: transparent;
+}
+
+.ibox-md {
+    height: 60px !important;
+}
+
+.fixed-table-header {
+    min-height: 37px !important;
+    max-height: 74px !important;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
